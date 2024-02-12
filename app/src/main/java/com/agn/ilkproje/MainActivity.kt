@@ -7,6 +7,10 @@ import com.agn.ilkproje.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     public lateinit var binding :ActivityMainBinding
+    //alınacak sayları global olarak yer tutmasını sağlama
+    var sayı1:Int?=null
+    var sayı2:Int?=null
+    var sonuc:Int?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,61 +22,61 @@ class MainActivity : AppCompatActivity() {
 
 
     fun topla(view : View){
-        var sayı1=binding.numbertext1.text.toString().toIntOrNull()
-        var sayı2=binding.numbertext2.text.toString().toIntOrNull()
+         sayı1=binding.numbertext1.text.toString().toIntOrNull()
+         sayı2=binding.numbertext2.text.toString().toIntOrNull()
         if(sayı1 == null || sayı2 == null){
             binding.textView.text="sayı girişi yap aq"
 
 
         }else{
-            var sonuc=sayı1+sayı2
+             sonuc=sayı1!!+sayı2!!
             binding.textView.text="Sonuc:${sonuc}"
 
         }
 
     }
-    fun cikar(){
-        var sayı1=binding.numbertext1.text.toString().toIntOrNull()
-        var sayı2=binding.numbertext2.text.toString().toIntOrNull()
+    fun cikar(view:View){
+         sayı1=binding.numbertext1.text.toString().toIntOrNull()
+         sayı2=binding.numbertext2.text.toString().toIntOrNull()
         if(sayı1 == null || sayı2 == null){
             binding.textView.text="sayı girişi yap aq"
 
 
         }else{
-            var sonuc=sayı1-sayı2
+             sonuc=sayı1!!-sayı2!!
             binding.textView.text="Sonuc:${sonuc}"
 
         }
 
     }
-    fun bol(){
-        var sayı1=binding.numbertext1.text.toString().toIntOrNull()
-        var sayı2=binding.numbertext2.text.toString().toIntOrNull()
+    fun bol(view:View){
+        sayı1=binding.numbertext1.text.toString().toIntOrNull()
+        sayı2=binding.numbertext2.text.toString().toIntOrNull()
         if(sayı1 == null || sayı2 == null){
             binding.textView.text="sayı girişi yap aq"
 
 
         }else{
-            if(sayı1 >= sayı2){
-                var sonuc= sayı1/sayı2
+            if(sayı1!! >= sayı2!!){
+                 sonuc= sayı1!!/sayı2!!
                 binding.textView.text="Sonuc= ${sonuc}"
             }
             else{
-                var sonuc= sayı2/sayı1
+                 sonuc= sayı2!!/sayı1!!
                 binding.textView.text="Sonuc=${sonuc}"
             }
 
         }
     }
-    fun carp(){
-        var sayı1=binding.numbertext1.text.toString().toIntOrNull()
-        var sayı2=binding.numbertext2.text.toString().toIntOrNull()
+    fun carp(view:View){
+         sayı1=binding.numbertext1.text.toString().toIntOrNull()
+         sayı2=binding.numbertext2.text.toString().toIntOrNull()
         if(sayı1 == null || sayı2 == null){
             binding.textView.text="sayı girişi yap aq"
 
 
         }else{
-            var sonuc=sayı1*sayı2
+             sonuc=sayı1!!*sayı2!!
             binding.textView.text="Sonuc:${sonuc}"
 
         }
